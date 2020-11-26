@@ -1,0 +1,26 @@
+prepare:
+  - dir: /home/npetric/.arc
+    permissions: '0700'
+    owner: npetric:npetric
+  - dir: /home/npetric/.ssh
+    permissions: '0700'
+    owner: npetric:npetric
+    
+copy-files:
+  - from: /home/nikita/.arc/launcher.py
+    to: /home/npetric/.arc/launcher.py
+    owner: npetric:npetric
+    permissions: '0700'
+  - from: /home/nikita/.bash_aliases
+    to: /home/npetric/.bash_aliases
+    owner: npetric:npetric
+    permissions: '0700'
+    protected: 1
+  - from: /etc/pacman.d/mirrorlist
+    to: /etc/pacman.d/mirrorlist
+    owner: root:root
+    permissions: '0644'
+  - from: /home/nikita/.ssh/id_rsa.pub
+    to: /home/npetric/.ssh/authorized_keys
+    owner: npetric:npetric
+    permissions: '0600'
